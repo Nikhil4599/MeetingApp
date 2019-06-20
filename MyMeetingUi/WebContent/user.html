@@ -1,0 +1,114 @@
+<div class="page-content" ng-controller="userController">
+
+      	<div class="row">
+  		  <div class="col-md-2">
+  		  	<div class="sidebar content-box" style="display: block;">
+                  <ul class="nav">
+                      <!-- Main menu -->
+                      <li class="current"><a href="/MyMeetingUi/#!/dashboard" ><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                      <li><a href="/MyMeetingUi/#!/user"><i class="glyphicon glyphicon-list" ></i> User</a></li>
+                      <li><a href="/MyMeetingUi/#!/task"><i class="glyphicon glyphicon-list" ></i> Task</a></li>
+                      <li><a id="meeting" href="/MyMeetingUi/?#!/meeting" ><i class="glyphicon glyphicon-list" ></i> Meeting</a></li>
+                      <li><a id="logout" href="/MyMeetingUi/#!/login" ><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+                  </ul>
+               </div>
+  		  </div>
+            
+            <div class="col-md-10">
+		  	
+<!--                 ---------- -->
+<!-- 					<div class="col-md-5"> -->
+<!-- 		  					<div class="content-box-large"> -->
+<!-- 				  				<div class="panel-heading"> -->
+<!-- 						            <div class="panel-title">Add User Form</div> -->
+						          
+<!-- 						            <div class="panel-options"> -->
+<!-- 						              <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a> -->
+<!-- 						              <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a> -->
+<!-- 						            </div> -->
+<!-- 						        </div> -->
+<!-- 				  				<div class="panel-body"> -->
+<!-- 				  					<form action="/MyMeetingUi/#!/user"> -->
+<!-- 										<fieldset> -->
+<!-- 											<div class="form-group"> -->
+<!-- 												<label> Name</label> -->
+<!-- 												<input class="form-control" placeholder="Text field" type="text" ng-model="user1.name" required> -->
+<!-- 											</div> -->
+<!-- 	                                        <div class="form-group"> -->
+<!-- 												<label> Email Id</label> -->
+<!-- 												<input class="form-control" placeholder="Text field" type="email" ng-model="user1.email" required> -->
+<!-- 											</div> -->
+<!-- 											<div class="form-group"> -->
+<!-- 												<label> Role</label> -->
+<!-- 												<input class="form-control" placeholder="Text field" type="text" ng-model="user1.role" required> -->
+<!-- 											</div> -->
+<!-- 										</fieldset> -->
+<!-- 										<div> -->
+<!-- 												<button id="Submit" ng-click="addUser()" class="btn btn-primary"> -->
+<!-- 												Submit</button> -->
+<!-- 												<button id="Edit" ng-click="editUser(user1.id)" class="btn btn-primary" style="display: none;"> -->
+<!-- 												Edit</button> -->
+<!-- 										</div> -->
+<!-- 									</form> -->
+<!-- 				  				</div> -->
+<!-- 				  			</div> -->
+<!-- 		  				</div> -->
+<!-- 		  		  ---------- -->
+
+		  		<div class="col-md-7" >
+	  					<div class="content-box-large">
+			  				<div class="panel-heading">
+								<div class="panel-title">ALL Users:</div>
+								<div class="panel-options">
+									<button ng-click="edit1()" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>EDIT</button>
+									<button ng-click="delete1()" class="btn btn-primary"><i class="glyphicon glyphicon-trash"></i>Delete</button>
+								</div>
+							</div>
+							<div class="col-md-9">
+			  									<BR>
+								              <div class="row">
+								                <div class="col-lg-11">
+								                  <div class="input-group form">
+								                       <input type="text" class="form-control" placeholder="Search By User..." ng-model="searchText.name">
+								                       <span class="input-group-btn">
+								                         <button class="btn btn-primary" type="button">Search</button>
+								                       </span>
+								                  </div>
+								                </div>
+								              </div>
+							</div>
+
+			  				
+	                        <div class="panel-body">		  					
+			  					<div><h4>There is {{users.length}} Users</h4></div>
+			  					<table class="table table-bordered">
+					              <thead>
+					                <tr>
+					                  <th>#</th>
+					                  <th>Name</th>
+					                  <th>Email_id</th>
+					                  <th>Roles</th>
+					                  <th>Operation</th>
+					                </tr>
+					              </thead>
+					              <tbody>
+					                <tr ng-repeat="user in users | filter : searchText">
+					                  <td>{{$index + 1}}</td>
+					                  <td>{{user.name}}</td>
+					                  <td>{{user.username}}</td>
+					                  <td><table><tr ng-repeat="r in user.roles"><td>{{$index + 1}}) {{r.name}}</td></tr></table></td>
+					                  <td><button id="edit{{$index}}" ng-click="Edit(user)" class="btn btn-warning"  style="display: none;"><i class="glyphicon glyphicon-edit"></i>Edit</button>
+					                  	<button id="delete{{$index}}" ng-click="Delete(user.id)" class="btn btn-danger" enabled style="display: block;"><i class="glyphicon glyphicon-trash" ></i>Delete</button>
+					                  </td>
+	                                </tr>
+					              </tbody>
+					            </table>
+			  				</div>
+			  			</div>
+	                </div>
+		  
+		  
+</div>
+</div>
+    </div>
+        
